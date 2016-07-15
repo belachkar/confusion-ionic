@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ristorante con Fusion</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="home">
+
+    <div *ngIf="showDish">
+      <ion-card>
+        <ion-card-content>
+          Our Lipsmacking Culinary Creations
+          <ion-badge item-right>{{dish.label}}</ion-badge>       
+
+          <ion-thumbnail item-left>
+            <img src="http://localhost:3000/{{dish.image}}" alt="Uthappizza">
+          </ion-thumbnail>
+          <div class="input-wrapper">
+            <ion-label>
+              <h2>{{dish.name}} <ion-badge item-right>{{dish.price}}</ion-badge></h2>
+              <p>{{dish.description}}</p>
+            </ion-label>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div *ngIf="showPromotion">
+      <ion-card>
+        <ion-card-content>
+          This Month's Promotions
+          <ion-badge item-right>{{promotion.label}}</ion-badge>        
+          <ion-thumbnail item-left>
+            <img src="http://localhost:3000/{{promotion.image}}" alt="Uthappizza">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{promotion.name}} <ion-badge item-right>{{promotion.price}}</ion-badge></h2>
+            <p>{{promotion.description}}</p>
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div *ngIf="showLeadership">
+      <ion-card>
+        <ion-card-content>
+          Meet our Culinary Specialist      
+          <ion-thumbnail item-left>
+            <img src="http://localhost:3000/{{leadership.image}}">
+          </ion-thumbnail>
+          <ion-label>
+              <h2>{{leadership.name}}</h2>
+              <h2>{{leadership.designation}}</h2>
+              <p>{{leadership.description}}</p>
+          </ion-label>
+        </ion-card-content>  
+      </ion-card>
+    </div>
+</ion-content>

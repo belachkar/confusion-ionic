@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Menu</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="menu">
+  <div *ngIf="showMenu">
+    <ion-list>
+      <ion-item *ngFor="let dish of dishes" (click)="goToDetail($event, dish)" class="item-thumbnail-left">
+      <img src="http://localhost:3000/{{dish.image}}">
+      <h2>
+        {{dish.name}} 
+        <span style="font-size:75%">{{dish.price}}</span>
+        <ion-badge>{{dish.label}}</ion-badge>
+      </h2>
+      <p>{{dish.description}}</p>
+
+      <ion-option-button class="button-assertive icon ion-plus-circled" ng-click="addFavorite({{dish.id}})"></ion-option-button>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
