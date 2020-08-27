@@ -15,13 +15,14 @@ This project uses:
 
 ## Installation
 
-> You don't have to downgrade your **nodeJS** version.
+> You don't have to downgrade your **npm** or **NodeJS** versions.
 >
 > Tested with:
 >
 > - **NodeJS**: 12.18.3
 > - **npm**: 6.14.8
 > - **Ionic**: 3.20.1
+> - **cordove**: 9.0.0
 
 1. Clone the project: `git clone https://github.com/belachkar/confusion-ionic.git`.
 
