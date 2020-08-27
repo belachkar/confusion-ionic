@@ -35,6 +35,13 @@ This project uses:
 3. Install the npm dependencies: `npm i`.
 4. For compatibility of commands for the rest of the lessons, may be you should install **ionic v3.20.1 globally** `npm i -g ionic@3`.
 
+If you have changed the project name you must also change it in these files:
+
+- `package.json`
+- `ionic.config.json`
+- `config.xml` in the **name** tag: `<name>confusion-ionic</name>`.
+- Drop the `package-lock.json` file, and run `npm i` to recreate it.
+
 ## Errors fixation
 
 Normally you shouldn't have any error, but if there is a problem installing `node-sass` (_Build error_):
