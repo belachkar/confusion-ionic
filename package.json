@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve",
+    "lab": "ionic serve --lab",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint"

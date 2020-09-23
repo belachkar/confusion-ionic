@@ -6,7 +6,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { MenuPage } from '../pages/menu/menu';
 import { MyApp } from './app.component';
 
@@ -16,7 +15,6 @@ import { MyApp } from './app.component';
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     AboutPage,
     MenuPage,
     ContactPage
@@ -29,7 +27,6 @@ import { MyApp } from './app.component';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     AboutPage,
     MenuPage,
     ContactPage
