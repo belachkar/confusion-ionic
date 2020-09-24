@@ -9,6 +9,9 @@ import { HomePage } from '../pages/home/home';
 import { MenuPage } from '../pages/menu/menu';
 import { MyApp } from './app.component';
 import { DishProvider } from '../providers/dish/dish';
+import { LeaderProvider } from '../providers/leader/leader';
+import { PromotionProvider } from '../providers/promotion/promotion';
+import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
 
 
 
@@ -36,7 +39,10 @@ import { DishProvider } from '../providers/dish/dish';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DishProvider
+    DishProvider,
+    LeaderProvider,
+    PromotionProvider,
+    ProcessHttpmsgProvider
   ]
 })
 export class AppModule { }
