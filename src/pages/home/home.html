@@ -8,12 +8,62 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the
-    <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <!-- Dish section -->
+  <ion-card *ngIf="dish">
+    <img src="{{ BaseURL + '/' + dish.image }}" alt="{{ dish.name }}">
+    <ion-card-content>
+      <ion-card-title>{{ dish.name | uppercase }}</ion-card-title>
+      <p>{{ dish.description }}</p>
+    </ion-card-content>
+  </ion-card>
+  <div [hidden]="dish || dishErrMsg">
+    <ion-spinner name="bubbles">
+      <h4>Loading... Please wait</h4>
+    </ion-spinner>
+  </div>
+  <div *ngIf="dishErrMsg">
+    <h2>Error</h2>
+    <h4>{{ dishErrMsg }}</h4>
+  </div>
 
+  <!-- Promotion section -->
+  <ion-card *ngIf="promotion">
+    <img src="{{ BaseURL + '/' + promotion.image }}" alt="{{ promotion.name }}">
+    <ion-card-content>
+      <ion-card-title>{{ promotion.name | uppercase }}</ion-card-title>
+      <p>{{ promotion.description }}</p>
+    </ion-card-content>
+  </ion-card>
+  <div [hidden]="promotion || promotionErrMsg">
+    <ion-spinner name="bubbles">
+      <h4>Loading... Please wait</h4>
+    </ion-spinner>
+  </div>
+  <div *ngIf="promotionErrMsg">
+    <h2>Error</h2>
+    <h4>{{ promotionErrMsg }}</h4>
+  </div>
+
+  <!-- Leader section -->
+  <ion-card *ngIf="leader">
+    <img src="{{ BaseURL + '/' + leader.image }}" alt="{{ leader.name }}">
+    <ion-card-content>
+      <ion-card-title>{{ leader.name | uppercase }}</ion-card-title>
+      <p>{{ leader.designation }}</p>
+      <p>{{ leader.description }}</p>
+    </ion-card-content>
+  </ion-card>
+  <div [hidden]="leader || leaderErrMsg">
+    <ion-spinner name="bubbles">
+      <h4>Loading... Please wait</h4>
+    </ion-spinner>
+  </div>
+  <div *ngIf="leaderErrMsg">
+    <h2>Error</h2>
+    <h4>{{ leaderErrMsg }}</h4>
+  </div>
+
+  <!-- Toggle sidebare button -->
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
