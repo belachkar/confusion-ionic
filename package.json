@@ -5,7 +5,7 @@
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
-    "start": "ionic-app-scripts serve",
+    "start": "ionic-app-scripts serve --lab",
     "lab": "ionic serve --lab",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
