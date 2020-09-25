@@ -1,9 +1,3 @@
-<!--
-  Generated template for the MenuPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color="primary">
     <button ion-button menuToggle>
@@ -13,4 +7,28 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding> </ion-content>
+<ion-content padding class="card-background-image">
+
+  <!-- List of dishes -->
+  <div *ngIf="dishes">
+    <ion-card *ngFor="let dish of dishes" (click)="dishSelected($event, dish)">
+      <img src="{{ BaseURL + '/' + dish.image }}" alt="{{ dish.name }}">
+      <div class="card-title">{{ dish.name }}</div>
+      <div class="card-subtitle">{{ dish.description }}</div>
+    </ion-card>
+  </div>
+
+  <!-- Spinner -->
+  <div [hidden]="dishes || errMsg">
+    <ion-spinner name="bubbles">
+      <h4>Loading... Please wait</h4>
+    </ion-spinner>
+  </div>
+
+  <!-- Display error message -->
+  <div *ngIf="errMsg">
+    <h2>Error</h2>
+    <h4>{{ errMsg }}</h4>
+  </div>
+
+</ion-content>
