@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Favorites</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="favorites">
+
+    <!-- Sliding buttons -->
+    <ion-list>
+      <ion-item-sliding *ngFor="let favorite of favorites" #item>
+        <ion-item>
+          <ion-thumbnail item-left>
+            <img src="{{ BaseURL + '/' + favorite.image }}" />
+          </ion-thumbnail>
+          <h3>{{ favorite.name }}</h3>
+          <p>{{ favorite.description }}</p>
+        </ion-item>
+        <ion-item-options side="right">
+
+          <!-- Delete favorite button -->
+          <button ion-button color="danger" (click)="deleteFavorite(item, favorite.id)">
+            <ion-icon slot="start" name="trash"></ion-icon>
+          </button>
+
+          <!-- Share favorite button -->
+          <button ion-button color="primary">
+            <ion-icon slot="start" name="share"></ion-icon>
+          </button>
+
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+  <!-- Spinner -->
+  <div [hidden]="favorites || errMsg">
+    <ion-spinner name="bubbles">
+      <h4>Loading... Please wait</h4>
+    </ion-spinner>
+  </div>
+
+  <!-- Display error message -->
+  <div *ngIf="errMsg">
+    <h2>Error</h2>
+    <h4>{{ errMsg }}</h4>
+  </div>
+</ion-content>

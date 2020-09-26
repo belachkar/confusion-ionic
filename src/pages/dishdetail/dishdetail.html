@@ -30,7 +30,6 @@
     </ion-row>
   </ion-card>
 
-
   <!-- Spinner -->
   <div [hidden]="dish || errMsg">
     <ion-spinner name="bubbles">
@@ -56,7 +55,7 @@
     </ion-item>
   </ion-list>
 
-  <!-- FAB Floating button-->
+  <!-- FAB Favorite button-->
   <ion-fab bottom right [hidden]="isFavorite">
     <button ion-fab (click)="addToFavorites()">
       <ion-icon name="heart-outline"></ion-icon>

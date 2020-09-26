@@ -35,7 +35,6 @@ export class MenuPage implements OnInit {
   dishSelected(event, dish: Dish) {
     const params = { dish };
 
-    console.log(typeof dish);
     this.navCtrl.push(DishdetailPage, params);
   }
 
