@@ -56,4 +56,16 @@
     </ion-item>
   </ion-list>
 
+  <!-- FAB Floating button-->
+  <ion-fab bottom right [hidden]="isFavorite">
+    <button ion-fab (click)="addToFavorites()">
+      <ion-icon name="heart-outline"></ion-icon>
+    </button>
+  </ion-fab>
+  <ion-fab bottom right *ngIf="isFavorite">
+    <button ion-fab>
+      <ion-icon name="heart"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>
