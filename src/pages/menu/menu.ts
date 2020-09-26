@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DishProvider } from '../../providers/dish/dish';
+import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { Dish } from '../../shared/dish';
 import { DishdetailPage } from '../dishdetail/dishdetail';
 
@@ -18,6 +19,7 @@ export class MenuPage implements OnInit {
     public navCtrl: NavController,
     public navParams: NavParams,
     private dishService: DishProvider,
+    private favService: FavoriteProvider,
     @Inject('BaseURL') public BaseURL) {
   }
 
@@ -36,6 +38,11 @@ export class MenuPage implements OnInit {
     const params = { dish };
 
     this.navCtrl.push(DishdetailPage, params);
+  }
+
+  addToFavorites(dish: Dish) {
+    console.log('Adding to favorite:', dish.id);
+    this.favService.addFavorite(dish.id);
   }
 
 }
