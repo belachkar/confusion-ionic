@@ -35,11 +35,15 @@
       <p>{{ promotion.description }}</p>
     </ion-card-content>
   </ion-card>
+
+  <!-- Spinner -->
   <div [hidden]="promotion || promotionErrMsg">
     <ion-spinner name="bubbles">
       <h4>Loading... Please wait</h4>
     </ion-spinner>
   </div>
+
+  <!-- Error message -->
   <div *ngIf="promotionErrMsg">
     <h2>Error</h2>
     <h4>{{ promotionErrMsg }}</h4>
@@ -54,16 +58,31 @@
       <p>{{ leader.description }}</p>
     </ion-card-content>
   </ion-card>
+
+  <!-- Spinner -->
   <div [hidden]="leader || leaderErrMsg">
     <ion-spinner name="bubbles">
       <h4>Loading... Please wait</h4>
     </ion-spinner>
   </div>
+
+  <!-- Error message -->
   <div *ngIf="leaderErrMsg">
     <h2>Error</h2>
     <h4>{{ leaderErrMsg }}</h4>
   </div>
 
-  <!-- Toggle sidebare button -->
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <!-- Float buttons -->
+  <ion-fab bottom right slot="fixed">
+    <button ion-fab color="accent"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab class="btn-mail"><ion-icon name="mail"></ion-icon></button>
+      <button ion-fab class="btn-googleplus"><ion-icon name="logo-googleplus"></ion-icon></button>
+      <button ion-fab class="btn-youtube"><ion-icon name="logo-youtube"></ion-icon></button>
+      <button ion-fab class="btn-twitter"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab class="btn-facebook"><ion-icon name="logo-facebook"></ion-icon></button>
+      <button ion-fab class="btn-linkedin"><ion-icon name="logo-linkedin"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
 </ion-content>
