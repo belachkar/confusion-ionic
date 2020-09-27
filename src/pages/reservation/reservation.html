@@ -5,7 +5,7 @@
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon slot="start" name="close" showWhen="android,windows"></ion-icon>
+        <ion-icon slot="start" name="md-close" showWhen="android,windows"></ion-icon>
       </button>
     </ion-buttons>
 
@@ -15,4 +15,42 @@
 
 <ion-content>
 
+  <!-- Reservation form -->
+  <form [formGroup]="reservation" (ngSubmit)="onSubmit()">
+
+    <!-- Guests Nbr -->
+    <ion-item>
+      <ion-label position="floating">No. of Guests</ion-label>
+      <ion-select formControlName="guests">
+        <ion-option value="1">1</ion-option>
+        <ion-option value="2">2</ion-option>
+        <ion-option value="3">3</ion-option>
+        <ion-option value="4">4</ion-option>
+        <ion-option value="5">5</ion-option>
+        <ion-option value="6">6</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Smoking toggle -->
+    <ion-item>
+      <ion-label position="floating">Smoking?</ion-label>
+      <ion-toggle slot="end" formControlName="smoking" checked></ion-toggle>
+    </ion-item>
+
+    <!-- Reaservation Date picker -->
+    <ion-item>
+      <ion-label>Date and Time</ion-label>
+      <ion-datetime
+        display-format="MMM DD,YYYY HH:mm"
+        pickerFormat="MMM DD,YYYY HH:mm"
+        formControlName="dateTime">
+      </ion-datetime>
+    </ion-item>
+
+    <!-- Submit button -->
+    <button ion-button block color="primary" type="submit" [disabled]="reservation.invalid">
+      Reserve
+    </button>
+
+  </form>
 </ion-content>
