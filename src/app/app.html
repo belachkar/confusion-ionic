@@ -9,7 +9,15 @@
     <ion-list>
       <button color="primary-pale" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon [name]="p.icon" item-left></ion-icon>
-        {{p.title}} </button>
+        {{p.title}}
+      </button>
+
+      <!-- Reservation modal button -->
+      <button color="primary-pale" menuClose ion-item (click)="openReserve()">
+        <ion-icon slot="start" name="restaurant" item-left></ion-icon>
+        Reserve Table
+      </button>
+
     </ion-list>
   </ion-content>
 </ion-menu>

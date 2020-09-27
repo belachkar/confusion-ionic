@@ -10,6 +10,7 @@ import { DishdetailPage } from '../pages/dishdetail/dishdetail';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { HomePage } from '../pages/home/home';
 import { MenuPage } from '../pages/menu/menu';
+import { ReservationPage } from '../pages/reservation/reservation';
 import { DishProvider } from '../providers/dish/dish';
 import { FavoriteProvider } from '../providers/favorite/favorite';
 import { LeaderProvider } from '../providers/leader/leader';
@@ -17,7 +18,6 @@ import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-htt
 import { PromotionProvider } from '../providers/promotion/promotion';
 import { baseURL } from '../shared/baseurl';
 import { MyApp } from './app.component';
-
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { MyApp } from './app.component';
     MenuPage,
     ContactPage,
     DishdetailPage,
-    FavoritesPage
+    FavoritesPage,
+    ReservationPage
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import { MyApp } from './app.component';
     MenuPage,
     ContactPage,
     DishdetailPage,
-    FavoritesPage
+    FavoritesPage,
+    ReservationPage
   ],
   providers: [
     StatusBar,
