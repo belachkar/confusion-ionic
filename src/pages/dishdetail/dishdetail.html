@@ -1,10 +1,15 @@
 <ion-header>
   <ion-navbar color="primary">
-    <ion-title>dishdetail</ion-title>
+    <ion-title>Dish Detail</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openActions()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
   <!-- Dish details -->
   <ion-card *ngIf="dish">

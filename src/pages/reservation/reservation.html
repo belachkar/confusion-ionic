@@ -5,10 +5,11 @@
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon slot="start" name="md-close" showWhen="android,windows"></ion-icon>
+        <ion-icon name="md-close" showWhen="android,windows" end></ion-icon>
       </button>
     </ion-buttons>
 
+    <!-- Title -->
     <ion-title>Reserve Table</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,7 +21,7 @@
 
     <!-- Guests Nbr -->
     <ion-item>
-      <ion-label position="floating">No. of Guests</ion-label>
+      <ion-label floating>No. of Guests</ion-label>
       <ion-select formControlName="guests">
         <ion-option value="1">1</ion-option>
         <ion-option value="2">2</ion-option>
@@ -33,7 +34,7 @@
 
     <!-- Smoking toggle -->
     <ion-item>
-      <ion-label position="floating">Smoking?</ion-label>
+      <ion-label floating>Smoking?</ion-label>
       <ion-toggle slot="end" formControlName="smoking" checked></ion-toggle>
     </ion-item>
 
