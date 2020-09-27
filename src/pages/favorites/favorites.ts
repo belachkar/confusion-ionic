@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { IonicPage, ItemSliding, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
+import { AlertController, IonicPage, ItemSliding, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { Dish } from '../../shared/dish';
 
@@ -12,6 +12,9 @@ import { Dish } from '../../shared/dish';
 export class FavoritesPage implements OnInit {
   favorites: Dish[];
   errMsg: string;
+  actions = {
+    deleteFav: (id: number) => this._doDeleteFav(id)
+  };
 
   constructor(
     public navCtrl: NavController,
@@ -19,6 +22,7 @@ export class FavoritesPage implements OnInit {
     private favoriteService: FavoriteProvider,
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
+    private alertCtrl: AlertController,
     @Inject('BaseURL') public BaseURL) {
   }
 
@@ -34,17 +38,41 @@ export class FavoritesPage implements OnInit {
   }
 
   deleteFavorite(item: ItemSliding, id: number) {
-    console.log('Deleted:', id);
+    console.log('Deleting favorite:', id);
+
+    const alert = this.alertCtrl.create({
+      title: 'Confirm Delete',
+      message: 'Do you want to delete this dish',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => console.log('Delete cancelled')
+        },
+        {
+          text: 'Delete',
+          handler: () => this.actions.deleteFav(id)
+        }
+      ]
+    });
+
+    alert.present();
+    item.close();
+  }
+
+  _doDeleteFav(id: number) {
 
     const toast = this.toastCtrl.create({
       message: `Dish ${id} deleted successfully`,
       duration: 3000
     });
+
     const loading = this.loadingCtrl.create({
       content: 'Deleting . . .'
     });
 
     loading.present();
+
     this.favoriteService.deleteFavorite(id)
       .subscribe(
         favs => {
@@ -56,8 +84,6 @@ export class FavoritesPage implements OnInit {
           loading.dismiss();
           this.errMsg = errMsg;
         });
-
-    item.close();
-  }
+  };
 
 }
