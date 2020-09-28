@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { ActionSheetController, IonicPage, ModalController, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FavoriteProvider } from '../../providers/favorite/favorite';
+import { Comment } from '../../shared/comment';
 import { Dish } from '../../shared/dish';
 import { CommentPage } from '../comment/comment';
 
@@ -83,9 +84,11 @@ export class DishdetailPage {
     const modal = this.modalCtrl.create(CommentPage);
 
     modal.present();
-    modal.onDidDismiss(comment => {
-      this.dish.comments.push(comment);
-      this._updateAvgStars();
+    modal.onDidDismiss((comment: Comment) => {
+      if (comment) {
+        this.dish.comments.push(comment);
+        this._updateAvgStars();
+      }
     });
   }
 

@@ -26,7 +26,9 @@ export class CommentPage {
   }
 
   dismiss(commentData: Comment) {
-    this.viewCtrl.dismiss(commentData);
+    commentData
+      ? this.viewCtrl.dismiss(commentData)
+      : this.viewCtrl.dismiss();
   }
 
   onSubmit() {

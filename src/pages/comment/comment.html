@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="primary-pale">
 
     <!-- Dismiss button -->
     <ion-buttons start>
       <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">Cancel</span>
-        <ion-icon name="md-close" showWhen="android,windows" end></ion-icon>
+        <ion-icon name="md-close" hideWhen="ios" end></ion-icon>
       </button>
     </ion-buttons>
 
@@ -27,7 +27,7 @@
     <ion-item>
       <ion-label floating>Your Rating</ion-label>
       <ion-range formControlName="rating" min="1" max="5" step="1" color="primary" pin snaps ticks>
-        <ion-icon size="small" name="sad" small range-left></ion-icon>
+        <ion-icon name="sad" small range-left></ion-icon>
         <ion-icon name="happy" range-right></ion-icon>
       </ion-range>
     </ion-item>
