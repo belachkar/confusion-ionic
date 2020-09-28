@@ -15,8 +15,7 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-
-
+// Remove Scrolling bar
 // ion-content::part(scroll)::-webkit-scrollbar {
 //   display: none;
 // }
@@ -35,3 +34,30 @@
 // .scroll-content {
 //   overflow       : hidden;
 // }
+
+// COLORS
+$lt-gray         : #ddd;
+$background-dark : #512DA8;
+$background-light: #9575CD;
+$background-pale : #D1C4E9;
+
+// SIZES
+$logo-size: 48px;
+
+.background-pale {
+  background-color: $background-pale;
+}
+
+ion-thumbnail.logo {
+  width     : $logo-size;
+  height    : $logo-size;
+  min-width : $logo-size;
+  min-height: $logo-size;
+  max-width : $logo-size;
+  max-height: $logo-size;
+
+  img.logo {
+    width : $logo-size;
+    height: $logo-size;
+  }
+}

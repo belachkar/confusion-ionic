@@ -1,26 +1,37 @@
-<ion-menu [content]="content" type="overlay">
-  <ion-header>
-    <ion-toolbar color="primary-dark">
-      <ion-title>Ristorante Con Fusion</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<!-- To apply grid system - split-pane -->
+<ion-split-pane>
 
-  <ion-content>
-    <ion-list>
-      <button color="primary-pale" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon [name]="p.icon" item-left></ion-icon>
-        {{p.title}}
-      </button>
+  <ion-menu [content]="content" type="overlay">
+    <ion-header>
+      <ion-toolbar color="primary-dark">
+        <ion-title>Ristorante Con Fusion</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-      <!-- Reservation modal button -->
-      <button color="primary-pale" menuClose ion-item (click)="openReserve()">
-        <ion-icon slot="start" name="restaurant" item-left></ion-icon>
-        Reserve Table
-      </button>
+    <ion-content class="background-pale">
+      <ion-list>
+        <ion-list-header color="primary-light" text-wraper>
+          <ion-thumbnail class="logo" item-left>
+            <img class="logo" src="assets/images/logo.png" />
+          </ion-thumbnail>
+          <h3>Ristorante Con Fusion</h3>
+        </ion-list-header>
+        <button color="primary-pale" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon [name]="p.icon" item-left></ion-icon>
+          {{p.title}}
+        </button>
 
-    </ion-list>
-  </ion-content>
-</ion-menu>
+        <!-- Reservation modal button -->
+        <button color="primary-pale" menuClose ion-item (click)="openReserve()">
+          <ion-icon slot="start" name="restaurant" item-left></ion-icon>
+          Reserve Table
+        </button>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false" main></ion-nav>
+
+</ion-split-pane>
