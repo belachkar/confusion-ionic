@@ -13,7 +13,7 @@
     "prepare": "ionic cordova prepare",
     "prepare:android": "ionic cordova prepare android",
     "prepare:ios": "ionic cordova prepare ios",
-    "deploy": "git status && git checkout master && git merge dev && git push origin master && git checkout dev"
+    "deploy": "git status && echo the mastr branche must not change!"
   },
   "dependencies": {
     "@angular/animations": "5.2.11",
