@@ -16,6 +16,14 @@
           </ion-thumbnail>
           <h3>Ristorante Con Fusion</h3>
         </ion-list-header>
+
+        <!-- Login modal button -->
+        <button color="primary-pale" menuClose ion-item (click)="openLogin()">
+          <ion-icon slot="start" name="log-in" item-left></ion-icon>
+          Login
+        </button>
+
+        <!-- Pages buttons -->
         <button color="primary-pale" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon [name]="p.icon" item-left></ion-icon>
           {{p.title}}
@@ -26,7 +34,6 @@
           <ion-icon slot="start" name="restaurant" item-left></ion-icon>
           Reserve Table
         </button>
-
       </ion-list>
     </ion-content>
   </ion-menu>

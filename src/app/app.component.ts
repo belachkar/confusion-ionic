@@ -6,6 +6,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { FavoritesPage } from '../pages/favorites/favorites';
 import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
 import { ReservationPage } from '../pages/reservation/reservation';
 
@@ -56,6 +57,10 @@ export class MyApp {
   openReserve() {
     const modal = this.modalCtrl.create(ReservationPage);
     modal.present();
+  }
 
+  openLogin() {
+    const modal = this.modalCtrl.create(LoginPage);
+    modal.present();
   }
 }

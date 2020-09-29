@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary-pale">
+
+    <!-- Close button -->
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" hideWhen="ios"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label floating>Username</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Remeber Me</ion-label>
+      <ion-checkbox color="primary" formControlName="remember"></ion-checkbox>
+    </ion-item>
+    <button ion-button type="submit" [disabled]="loginForm.invalid" block>Login</button>
+  </form>
+</ion-content>
