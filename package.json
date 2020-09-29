@@ -6,13 +6,12 @@
   "private": true,
   "scripts": {
     "start": "ionic-app-scripts serve --lab",
-    "lab": "ionic serve --lab",
     "clean": "ionic-app-scripts clean",
     "build": "ionic-app-scripts build",
+    "build:android": "ionic-app-scripts build android",
     "lint": "ionic-app-scripts lint",
     "prepare": "ionic cordova prepare",
     "prepare:android": "ionic cordova prepare android",
-    "prepare:ios": "ionic cordova prepare ios",
     "deploy": "git status && echo the mastr branche must not change!"
   },
   "dependencies": {

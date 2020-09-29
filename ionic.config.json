@@ -1,6 +1,6 @@
 {
   "name": "confusion-ionic",
-  "app_id": "",
+  "app_id": "com.startup.config-ionic",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

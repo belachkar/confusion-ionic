@@ -55,7 +55,6 @@ export class LoginPage {
   private _initStorage() {
     this.storage.get('user').then(user => {
       if (user) {
-        console.log('User defined');
         this.user = user;
         this.loginForm.patchValue(user);
       } else {
