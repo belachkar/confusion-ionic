@@ -12,6 +12,8 @@
     "lint": "ionic-app-scripts lint",
     "prepare": "ionic cordova prepare",
     "prepare:android": "ionic cordova prepare android",
+    "serve:android": "ionic cordova run --device android --target",
+    "serve:live": "ionic cordova run android -lc --address=localhost",
     "deploy": "git status && echo the mastr branche must not change!"
   },
   "dependencies": {
