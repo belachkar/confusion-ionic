@@ -35,6 +35,9 @@ export class FavoritesPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FavoritesPage');
+    this.favoriteService.getFavorites().subscribe(
+      favs => this.favorites = favs,
+      errMsg => this.errMsg = errMsg);
   }
 
   deleteFavorite(item: ItemSliding, id: number) {
