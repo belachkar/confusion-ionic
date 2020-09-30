@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs/observable/of';
@@ -15,7 +16,8 @@ export class FavoriteProvider {
   constructor(
     public http: HttpClient,
     private dishService: DishProvider,
-    private storage: Storage
+    private storage: Storage,
+    private locNotif: LocalNotifications
   ) {
     console.log('Hello FavoriteProvider Provider');
     this._getStoredFavs();
@@ -25,6 +27,9 @@ export class FavoriteProvider {
     if (!this.isFavorite(id)) {
       this.favorites.push(id);
       this._updateStoredFavs();
+
+      const text = `The dish ${id} was added to your favorites.`;
+      this.pushNotification(id, text);
     }
     return true;
   }
@@ -68,6 +73,10 @@ export class FavoriteProvider {
 
   private _updateStoredFavs() {
     this.storage.set('favorites', this.favorites);
+  }
+
+  private pushNotification(id: number, text: string) {
+    this.locNotif.schedule({ id, text });
   }
 
 }
