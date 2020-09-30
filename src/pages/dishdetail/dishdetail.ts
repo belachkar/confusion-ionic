@@ -1,4 +1,5 @@
 import { Component, Inject } from '@angular/core';
+import { SocialSharing } from '@ionic-native/social-sharing';
 import { ActionSheetController, IonicPage, ModalController, NavController, NavParams, ToastController } from 'ionic-angular';
 import { FavoriteProvider } from '../../providers/favorite/favorite';
 import { Comment } from '../../shared/comment';
@@ -25,6 +26,7 @@ export class DishdetailPage {
     private toastCtrl: ToastController,
     private actionSheetCtrl: ActionSheetController,
     private modalCtrl: ModalController,
+    private socialSharing: SocialSharing,
     @Inject('BaseURL') public BaseURL
   ) {
     this._init();
@@ -72,6 +74,12 @@ export class DishdetailPage {
           text: 'Add a Comment',
           handler: () => this.openComment()
         }, {
+          text: 'Share via Facebook',
+          handler: () => this.shareFB()
+        }, {
+          text: 'Share via Twitter',
+          handler: () => this.shareTwitter()
+        }, {
           text: 'Cancel',
           role: 'cancel',
           handler: () => console.log("Operation cancelled")
@@ -80,7 +88,7 @@ export class DishdetailPage {
     }).present();
   }
 
-  openComment() {
+  private openComment() {
     const modal = this.modalCtrl.create(CommentPage);
 
     modal.present();
@@ -90,6 +98,24 @@ export class DishdetailPage {
         this._updateAvgStars();
       }
     });
+  }
+
+  private shareFB() {
+    const { name, description, image } = this.dish;
+    const message = `${name} -- ${description}`;
+
+    this.socialSharing.shareViaFacebook(message, image)
+      .then(data => console.log('Posted successfully to FB', data))
+      .catch(errMsg => console.error('Failed to post to FB', errMsg));
+  }
+
+  private shareTwitter() {
+    const { name, description, image } = this.dish;
+    const message = `${name} -- ${description}`;
+
+    this.socialSharing.shareViaTwitter(message, image)
+      .then(data => console.log('Posted successfully to Twitter', data))
+      .catch(errMsg => console.error('Failed to post to Twitter', errMsg));
   }
 
   private _updateAvgStars() {
