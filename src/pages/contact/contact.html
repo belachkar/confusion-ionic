@@ -17,20 +17,20 @@
         121, Clear Water Bay Road<br />
         Clear Water Bay, Kowloon<br />
         HONG KONG<br />
-        <ion-icon slot="start" name="call"></ion-icon><span>Tel: +852 1234 5678</span><br />
-        <ion-icon slot="start" name="print"></ion-icon><span>Fax: +852 8765 4321</span><br />
-        <ion-icon slot="start" name="mail"></ion-icon><span>Email:confusion@food.net</span>
+        <ion-icon name="call" start></ion-icon><span>Tel: +852 1234 5678</span><br />
+        <ion-icon name="print" start></ion-icon><span>Fax: +852 8765 4321</span><br />
+        <ion-icon name="mail" start></ion-icon><span>Email:confusion@food.net</span>
       </address>
     </ion-card-content>
     <ion-row justify-content-center>
       <ion-col>
         <button ion-button small clear>
-          <ion-icon slot="start" name="call"></ion-icon><span>CALL</span>
+          <ion-icon name="call" start></ion-icon><span>CALL</span>
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button small clear>
-          <ion-icon slot="start" name="mail"></ion-icon><span>EMAIL</span>
+        <button ion-button (click)="sendEmail()" small clear>
+          <ion-icon name="mail" start></ion-icon><span>EMAIL</span>
         </button>
       </ion-col>
     </ion-row>
