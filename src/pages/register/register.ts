@@ -42,7 +42,7 @@ export class RegisterPage {
       : this.viewCtrl.dismiss();
   }
 
-  getPictureFromLibrary() {
+  getFromLibrary() {
     const camOptions: CameraOptions = {
       allowEdit: true,
       mediaType: this.camera.MediaType.PICTURE,

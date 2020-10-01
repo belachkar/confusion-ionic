@@ -42,7 +42,7 @@ export class ContactPage {
       .catch(errMsg => console.error(errMsg));
   }
 
-  makeCall() {
+  callRestaurant() {
     const isBypassAppChooser = false;
 
     this.callNbr.callNumber(this.contact.telNbr, isBypassAppChooser)
