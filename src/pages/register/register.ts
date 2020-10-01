@@ -42,13 +42,35 @@ export class RegisterPage {
       : this.viewCtrl.dismiss();
   }
 
+  getPictureFromLibrary() {
+    const camOptions: CameraOptions = {
+      allowEdit: true,
+      mediaType: this.camera.MediaType.PICTURE,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    };
+
+    this.camera.getPicture(camOptions)
+      .then(imgFileURI => {
+        if (imgFileURI) {
+
+          // Fix the url access Error: Not allowed to load local resource
+          const win: any = window; // hack ionic/angular compilator
+          const newImgFileURI = win.Ionic.WebView.convertFileSrc(imgFileURI);
+
+          this.image = newImgFileURI;
+        }
+      })
+      .catch(errMsg => console.error('Fail loading the picture', errMsg));
+  }
+
   getPicture() {
     const camOptions: CameraOptions = {
       quality: 100,
       targetHeight: 100,
       targetWidth: 100,
-      correctOrientation: true,
       allowEdit: true,
+      correctOrientation: true,
       destinationType: this.camera.DestinationType.FILE_URI,
       encodingType: this.camera.EncodingType.PNG,
       mediaType: this.camera.MediaType.PICTURE,
@@ -67,14 +89,14 @@ export class RegisterPage {
       .then(imgFileURI => {
         if (imgFileURI) {
 
-          // Fix the url access Error
+          // Fix the url access Error: Not allowed to load local resource
           const win: any = window; // hack ionic/angular compilator
           const newImgFileURI = win.Ionic.WebView.convertFileSrc(imgFileURI);
 
           this.image = newImgFileURI;
         }
       })
-      .catch(errMsg => console.error('Error obtaining the picture', errMsg));
+      .catch(errMsg => console.error('Fail loading the picture', errMsg));
   }
 
   onSubmit() {

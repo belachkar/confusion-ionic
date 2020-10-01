@@ -20,9 +20,12 @@
     <ion-card-header color="primary">Your Picture</ion-card-header>
     <img src="{{ image }}" alt="Your picture">
     <ion-grid>
-      <ion-row>
+      <ion-row justify-content-center>
         <ion-col>
           <button ion-button small (click)="getPicture()">Take Picture</button>
+        </ion-col>
+        <ion-col>
+          <button ion-button small (click)="getPictureFromLibrary()">Get From Library</button>
         </ion-col>
       </ion-row>
     </ion-grid>

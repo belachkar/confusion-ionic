@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CallNumber } from '@ionic-native/call-number';
 import { EmailComposer, EmailComposerOptions } from '@ionic-native/email-composer';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -9,11 +10,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'contact.html',
 })
 export class ContactPage {
+  contact = {
+    telNbr: '+852 1234 5678',
+    faxNbr: '+852 8765 4321',
+    email: 'confusion@food.net'
+  };
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private emailComp: EmailComposer) {
+    private emailComp: EmailComposer,
+    private callNbr: CallNumber) {
   }
 
   ionViewDidLoad() {
@@ -33,6 +40,14 @@ export class ContactPage {
     this.emailComp.open(emailOpt)
       .then(data => console.log(data))
       .catch(errMsg => console.error(errMsg));
+  }
+
+  makeCall() {
+    const isBypassAppChooser = false;
+
+    this.callNbr.callNumber(this.contact.telNbr, isBypassAppChooser)
+      .then(data => console.log(data))
+      .catch(errMsg => console.error('Call number fail:', errMsg));
   }
 
 }

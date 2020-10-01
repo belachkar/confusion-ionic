@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { CallNumber } from '@ionic-native/call-number';
 import { Camera } from '@ionic-native/camera';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -73,6 +74,7 @@ import { MyApp } from './app.component';
     SocialSharing,
     Camera,
     Network,
+    CallNumber,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: 'BaseURL', useValue: baseURL },
     DishProvider,
