@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Camera } from '@ionic-native/camera';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { Network } from '@ionic-native/network';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -71,6 +72,7 @@ import { MyApp } from './app.component';
     EmailComposer,
     SocialSharing,
     Camera,
+    Network,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: 'BaseURL', useValue: baseURL },
     DishProvider,

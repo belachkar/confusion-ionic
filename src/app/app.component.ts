@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
+import { Network } from '@ionic-native/network';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { ModalController, Nav, Platform } from 'ionic-angular';
+import { Loading, LoadingController, ModalController, Nav, Platform } from 'ionic-angular';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { FavoritesPage } from '../pages/favorites/favorites';
@@ -17,6 +18,7 @@ import { ReservationPage } from '../pages/reservation/reservation';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  loading: Loading;
   rootPage: any = HomePage;
 
   pages: Array<{ title: string, icon: string, component: any; }>;
@@ -25,7 +27,10 @@ export class MyApp {
     public platform: Platform,
     public statusBar: StatusBar,
     public splashScreen: SplashScreen,
-    private modalCtrl: ModalController) {
+    private modalCtrl: ModalController,
+    private loadingCtrl: LoadingController,
+    private network: Network
+  ) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -45,6 +50,22 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      // Check network connection status
+      this.network.onDisconnect().subscribe(() => {
+        if (!this.loading || this.loading) {
+          this.loading = this.loadingCtrl.create({
+            content: 'Network Disconnected'
+          });
+        }
+        this.loading.present();
+      });
+
+      this.network.onConnect().subscribe(() => {
+        console.log('The connection type is:', this.network.type);
+        if (this.loading)
+          this.loading.dismiss();
+      });
     });
   }
 
