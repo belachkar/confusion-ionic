@@ -25,6 +25,7 @@
     "@angular/forms": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/camera": "^3.14.0",
     "@ionic-native/core": "4.20.0",
     "@ionic-native/email-composer": "^3.14.0",
     "@ionic-native/local-notifications": "^4.20.0",
@@ -35,6 +36,7 @@
     "cordova-android": "8.1.0",
     "cordova-plugin-androidx": "3.0.0",
     "cordova-plugin-androidx-adapter": "1.1.1",
+    "cordova-plugin-camera": "4.1.0",
     "cordova-plugin-email": "1.2.7",
     "cordova-plugin-x-socialsharing": "6.0.2",
     "de.appplant.cordova.plugin.local-notification": "0.8.5",
@@ -70,7 +72,10 @@
       "cordova-plugin-email": {},
       "cordova-plugin-x-socialsharing": {},
       "cordova-plugin-androidx": {},
-      "cordova-plugin-androidx-adapter": {}
+      "cordova-plugin-androidx-adapter": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      }
     },
     "platforms": [
       "android"

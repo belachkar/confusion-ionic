@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@ionic/storage';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams, ViewController } from 'ionic-angular';
 import { User } from '../../shared/user';
+import { RegisterPage } from '../register/register';
 
 
 @IonicPage()
@@ -19,7 +20,8 @@ export class LoginPage {
     public navParams: NavParams,
     private viewCtrl: ViewController,
     private formBuilder: FormBuilder,
-    private storage: Storage
+    private storage: Storage,
+    private modalCtrl: ModalController
   ) {
     this._initForm();
     this._initStorage();
@@ -42,6 +44,13 @@ export class LoginPage {
 
     this._updateStorage(isRememberChecked);
     this.dismiss();
+  }
+
+  openRegister() {
+    const modal = this.modalCtrl.create(RegisterPage);
+
+    modal.present();
+    modal.onDidDismiss(regData => this.dismiss());
   }
 
   private _initForm() {

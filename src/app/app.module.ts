@@ -2,6 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { Camera } from '@ionic-native/camera';
 import { EmailComposer } from '@ionic-native/email-composer';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { SocialSharing } from '@ionic-native/social-sharing';
@@ -17,6 +18,7 @@ import { FavoritesPage } from '../pages/favorites/favorites';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { MenuPage } from '../pages/menu/menu';
+import { RegisterPage } from '../pages/register/register';
 import { ReservationPage } from '../pages/reservation/reservation';
 import { DishProvider } from '../providers/dish/dish';
 import { FavoriteProvider } from '../providers/favorite/favorite';
@@ -38,7 +40,8 @@ import { MyApp } from './app.component';
     FavoritesPage,
     ReservationPage,
     CommentPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ import { MyApp } from './app.component';
     FavoritesPage,
     ReservationPage,
     CommentPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
@@ -66,6 +70,7 @@ import { MyApp } from './app.component';
     LocalNotifications,
     EmailComposer,
     SocialSharing,
+    Camera,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     { provide: 'BaseURL', useValue: baseURL },
     DishProvider,
